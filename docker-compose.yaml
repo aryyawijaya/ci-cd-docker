@@ -1,0 +1,26 @@
+services:
+  mariadb:
+    image: mariadb:11.5.1-ubi9-rc
+    volumes:
+      - ci-cd-docker:/var/lib/mysql
+    environment:
+      - MARIADB_USER=${db_username}
+      - MARIADB_PASSWORD=${db_password}
+      - MARIADB_ROOT_PASSWORD=${db_root_password}
+      - MARIADB_DATABASE=${db_name}
+
+  ci-cd-docker-go:
+    image: aryyadocker/ci-cd-docker-go:${GO_IMAGE_TAG}
+    ports:
+      - 8000:8000
+    environment:
+      - db_host=${db_host}
+      - db_port=${db_port}
+      - db_username=${db_username}
+      - db_password=${db_password}
+      - db_name=${db_name}
+    depends_on:
+      - mariadb
+
+volumes:
+  ci-cd-docker:
