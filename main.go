@@ -33,7 +33,7 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, gin.H{
-			"version":     "v1.0",
+			"version":     "v2.0",
 			"description": "sample golang application",
 			"database": gin.H{
 				"info": gin.H{
