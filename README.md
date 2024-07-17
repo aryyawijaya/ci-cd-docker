@@ -9,3 +9,6 @@ db_username
 db_password
 db_name
 ```
+
+## Golang app deployed successfully to VM
+![app-deployed-to-vm](https://github.com/aryyawijaya/ci-cd-docker/blob/main/docs/app-deployed-to-vm.png)
