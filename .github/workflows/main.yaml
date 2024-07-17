@@ -30,14 +30,6 @@ jobs:
     steps:
       - name: Checkout to get docker compose & env file
         uses: actions/checkout@v4
-      - name: SSH to server to deploy container
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VM_HOST }}
-          username: ${{ secrets.VM_USERNAME }}
-          key: ${{ secrets.VM_KEY }}
-          script: |
-            mkdir /app
       - name: Copy docker compose & env file
         uses: appleboy/scp-action@v0.1.7
         with:
